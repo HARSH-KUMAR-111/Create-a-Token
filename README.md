@@ -14,13 +14,13 @@ The smart contract, PokemonToken, consists of the following features:
 ### 2 Mapping:
 
 balances: Maps addresses to their respective token balances.
-### 3 FUnctions:
+### 3 Functions:
 
 Mint: Logs the minting of tokens.
 Burn: Logs the burning of tokens.
 
-mint(address to, uint256 amount): Increases the total supply of tokens and the balance of the specified address by the given amount. Emits a Mint event.
-burn(address from, uint256 amount): Decreases the total supply of tokens and the balance of the specified address by the given amount, provided the address has enough tokens to burn. Emits a Burn event.
+mint(address _add, uint256 _val): Increases the total supply of tokens and the balance of the specified address by the given amount. Emits a Mint event.
+burn(address _add, uint256 _val): Decreases the total supply of tokens and the balance of the specified address by the given amount, provided the address has enough tokens to burn. Emits a Burn event.
 ## Code Explanation
 
 ### Variables
@@ -30,7 +30,7 @@ Token Abbreviation (TAbb): This variable stores the abbreviation of the token, w
 
 Total Supply (Supply): This variable tracks the total supply of the tokens. Initially, it is set to 0.
 ### Mapping
-Balances (balances): This mapping associates each address with its corresponding token balance. The key is an address, and the value is the balance of tokens that address holds.
+Balances (balance): This mapping associates each address with its corresponding token balance. The key is an address, and the value is the balance of tokens that address holds.
 ### Functions
 Mint Function (mint): This function increases the total supply of tokens by the specified amount and credits the same amount to the balance of the given address. It also emits a Mint event.
 
