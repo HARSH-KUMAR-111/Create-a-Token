@@ -4,7 +4,7 @@
 This smart contract is my submission for the Metacrafters ETH Proof: Beginner EVM Course. The contract implements a basic token system with minting and burning functionalities. It includes public variables to store token details, a mapping to track balances, events for logging actions, and functions to mint and burn tokens, as well as to check user balances.
 ## Description
 
-The smart contract, CurseToken, consists of the following features:
+The smart contract, PokemonToken, consists of the following features:
 
 ### 1 Public Variables:
 
