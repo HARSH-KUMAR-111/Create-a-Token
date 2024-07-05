@@ -1,48 +1,74 @@
-# Pokemon Token Smart Contract
+# POKEMON TOKEN SMART CONTRACT
 
-## Overview
 This smart contract is my submission for the Metacrafters ETH Proof: Beginner EVM Course. The contract implements a basic token system with minting and burning functionalities. It includes public variables to store token details, a mapping to track balances, events for logging actions, and functions to mint and burn tokens, as well as to check user balances.
+
 ## Description
+This project focuses on creating a custom token using the Solidity programming language within the Remix IDE. Remix is a popular web-based development environment that provides a user-friendly interface for writing, compiling, and deploying smart contracts on the Ethereum blockchain.
 
-The smart contract, PokemonToken, consists of the following features:
+## Getting Started
 
-### 1 Public Variables:
+### Executing program
 
-* Tname: Stores the name of the token, which is set to "Pokemon".
-* TAbb: Stores the abbreviation of the token, which is set to "Pkm".
-* Supply: Stores the total supply of tokens.
-### 2 Mapping:
+The project will involve the following steps:
 
-balances: Maps addresses to their respective token balances.
-### 3 Functions:
+Setting up Remix:
 
-Mint: Logs the minting of tokens.
-Burn: Logs the burning of tokens.
+1. Open the Remix IDE in your web browser.
+* To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-mint(address _add, uint256 _val): Increases the total supply of tokens and the balance of the specified address by the given amount. Emits a Mint event.
-burn(address _add, uint256 _val): Decreases the total supply of tokens and the balance of the specified address by the given amount, provided the address has enough tokens to burn. Emits a Burn event.
-## Code Explanation
+2. Creating the Token Contract:
 
-### Variables
-Token Name (Tname): This variable stores the name of the token, which is set to "Pokemon".
+* Start a new file in the code editor within Remix. Copy and paste the following code into the file:
 
-Token Abbreviation (TAbb): This variable stores the abbreviation of the token, which is set to "Pkm".
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.26;
 
-Total Supply (Supply): This variable tracks the total supply of the tokens. Initially, it is set to 0.
-### Mapping
-Balances (balance): This mapping associates each address with its corresponding token balance. The key is an address, and the value is the balance of tokens that address holds.
-### Functions
-Mint Function (mint): This function increases the total supply of tokens by the specified amount and credits the same amount to the balance of the given address. It also emits a Mint event.
+contract MyToken {
 
-Burn Function (burn): This function decreases the total supply of tokens by the specified amount and deducts the same amount from the balance of the given address. The function checks if the address has enough tokens before proceeding with the burn. It also emits a Burn event.
+    string public TName = "Pokemon";
+    string public TAbb = "Pkm";
+    uint256 public Supply = 0;
+
+    mapping(address => uint256) public balance;
+
+    function mint(address _add, uint256 _val) public {
+        Supply =Supply + _val;
+        balance[_add] += _val;
+    }
+    
+    function burn(address _add, uint256 _val) public {
+        require(balance[_add] >= _val, "Insufficient balance");
+        Supply = (Supply - _val);
+        balance[_add] = (balance[_add] - _val);
+    }
+}
+
+
+
+
+3. Compiling the Contract:
+
+* Use the Remix compiler panel to compile your token contract.
+* Select the appropriate compiler version i.e 0.8.18.
+
+4. Deploying the Contract:
+
+* Switch to the "Deploy & run transactions" tab in Remix.
+* Deploy the compiled contract by clicking the "Deploy" button.
+
+5. Interacting with the Token:
+
+* Utilize the Remix IDE to interact with the deployed token contract.
+* Use the Addresstobalance, mint and burn functions in the "Deployed Contracts" section to perform actions like transferring tokens, checking balances, and burning tokens.
+* Input the adress and value and click on the corresponding function buttons to execute our contract.
+
+
 ## Authors
 
-Harsh Kumar
-(www.linkedin.com/in/harsh-kumar-91059b231)
-
-## Platform
-This contract can be tested and ran on Remix IDE.
-
+Harsh Kumar (www.linkedin.com/in/harsh-kumar-91059b231)
+ 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details.This code is licensed under the MIT License. You can find the license text in the SPDX-License-Identifier comment at the beginning of the contract.
+
+Note: Ensure that you are using a compatible Solidity compiler version (0.8.18) or newer to compile and interact with this contract.
